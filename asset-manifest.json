@@ -1,13 +1,31 @@
 {
   "files": {
-    "main.css": "/library-bntu/static/css/main.a240c550.css",
-    "main.js": "/library-bntu/static/js/main.7a842d75.js",
+    "main.css": "/library-bntu/static/css/main.ef482378.css",
+    "main.js": "/library-bntu/static/js/main.08ad59b7.js",
+    "static/media/Roboto-Regular.ttf": "/library-bntu/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
+    "static/media/Roboto-Bold.ttf": "/library-bntu/static/media/Roboto-Bold.f80816a5455d171f948d.ttf",
+    "static/media/RobotoSlab-Bold.ttf": "/library-bntu/static/media/RobotoSlab-Bold.782c0d76a12a08d80d48.ttf",
+    "static/media/bntu-main-logo.svg": "/library-bntu/static/media/bntu-main-logo.9bc2916e38dc45b3a6feb06e0cfce6e3.svg",
+    "static/media/atom.svg": "/library-bntu/static/media/atom.35d9da48ba88e1d593b170d44cb385fa.svg",
+    "static/media/telegram.svg": "/library-bntu/static/media/telegram.9302b8110caf609c9faa7fe1e505f5db.svg",
+    "static/media/twitter.svg": "/library-bntu/static/media/twitter.b8e1d6b46084daa397ded24e1bb26c5f.svg",
+    "static/media/instagram.svg": "/library-bntu/static/media/instagram.9f404bbc82e222aafd105ab342cc2799.svg",
+    "static/media/bntu-building.svg": "/library-bntu/static/media/bntu-building.4d2ee405be51224b1c89f94feeff2642.svg",
+    "static/media/document-text.svg": "/library-bntu/static/media/document-text.6c0aa85f420cd96aacb6f6cd73e7bcb8.svg",
+    "static/media/printer.svg": "/library-bntu/static/media/printer.18e51e6b4494c38b4ea2a337242cd848.svg",
+    "static/media/user-edit.svg": "/library-bntu/static/media/user-edit.2d2b8ed420ee7042bd03d790d452ca31.svg",
+    "static/media/burger-menu.svg": "/library-bntu/static/media/burger-menu.ae72efe39c2fdb7db7415fdd2a95baa9.svg",
+    "static/media/vk.svg": "/library-bntu/static/media/vk.10b1e6cab982c38511119811ad1d0363.svg",
+    "static/media/facebook.svg": "/library-bntu/static/media/facebook.ded0c24e3b76f3f504935a589d208ee8.svg",
+    "static/media/quotes.svg": "/library-bntu/static/media/quotes.ca2d38e0b05ff9eacf654f29a48ea1a6.svg",
+    "static/media/mail.svg": "/library-bntu/static/media/mail.45d805cc21941fd12d7072c57610dea0.svg",
+    "static/media/h.svg": "/library-bntu/static/media/h.6ad8e8b538115dac7c234f791219758c.svg",
     "index.html": "/library-bntu/index.html",
-    "main.a240c550.css.map": "/library-bntu/static/css/main.a240c550.css.map",
-    "main.7a842d75.js.map": "/library-bntu/static/js/main.7a842d75.js.map"
+    "main.ef482378.css.map": "/library-bntu/static/css/main.ef482378.css.map",
+    "main.08ad59b7.js.map": "/library-bntu/static/js/main.08ad59b7.js.map"
   },
   "entrypoints": [
-    "static/css/main.a240c550.css",
-    "static/js/main.7a842d75.js"
+    "static/css/main.ef482378.css",
+    "static/js/main.08ad59b7.js"
   ]
 }
