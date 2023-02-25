@@ -1,16 +1,13 @@
 {
   "files": {
-    "main.css": "/library-bntu/static/css/main.073c9b0a.css",
-    "main.js": "/library-bntu/static/js/main.75481fdc.js",
-    "static/js/787.4c457fe4.chunk.js": "/library-bntu/static/js/787.4c457fe4.chunk.js",
-    "static/media/logo.svg": "/library-bntu/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/library-bntu/static/css/main.a240c550.css",
+    "main.js": "/library-bntu/static/js/main.7a842d75.js",
     "index.html": "/library-bntu/index.html",
-    "main.073c9b0a.css.map": "/library-bntu/static/css/main.073c9b0a.css.map",
-    "main.75481fdc.js.map": "/library-bntu/static/js/main.75481fdc.js.map",
-    "787.4c457fe4.chunk.js.map": "/library-bntu/static/js/787.4c457fe4.chunk.js.map"
+    "main.a240c550.css.map": "/library-bntu/static/css/main.a240c550.css.map",
+    "main.7a842d75.js.map": "/library-bntu/static/js/main.7a842d75.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.75481fdc.js"
+    "static/css/main.a240c550.css",
+    "static/js/main.7a842d75.js"
   ]
 }
