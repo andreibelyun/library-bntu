@@ -1,0 +1,21 @@
+@import "../../../styles/variables.scss";
+
+.header {
+  width: 100%;
+  padding: 40px 70px 5px;
+  box-sizing: border-box;
+  min-height: 130px;
+  @include flex(row, center, flex-start);
+}
+
+.logo {
+  height: 90px;
+  width: 90px;
+  margin: 0 auto;
+}
+
+.burger {
+  background: none;
+  border: none;
+  @include interactive-el;
+}
