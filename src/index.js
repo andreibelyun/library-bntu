@@ -4,9 +4,11 @@ import "./index.scss";
 import App from "./components/App";
 import { BrowserRouter } from "react-router-dom";
 
+const basePath = "library-bntu";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
+  <BrowserRouter basename={basePath}>
     <App />
   </BrowserRouter>
 );

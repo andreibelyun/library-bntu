@@ -1,54 +1,15 @@
 import { Route, Routes } from "react-router-dom";
-import {
-  IconAtom,
-  IconBntuBuilding,
-  IconDocument,
-  IconH,
-  IconPrinter,
-  IconQuotes,
-  IconUserEdit,
-} from "../assets/icons/icons";
-import BtnCircle from "./BtnCircle/BtnCircle";
-import Layout from "./layout/Layout";
-import Title from "./Title/Title";
-
-const basePath = "library-bntu";
+import Analytics from "../pages/Analytics/Analytics";
+import DataSearch from "../pages/DataSearch/DataSearch";
+import Home from "../pages/Home/Home";
 
 function App() {
   return (
-    <Layout>
-      <Routes>
-        <Route
-          path={`${basePath}`}
-          element={
-            <div>
-              <Title>Hello Slava</Title>
-              <BtnCircle>
-                <IconDocument />
-              </BtnCircle>
-              <BtnCircle>
-                <IconUserEdit />
-              </BtnCircle>
-              <BtnCircle>
-                <IconBntuBuilding />
-              </BtnCircle>
-              <BtnCircle>
-                <IconQuotes />
-              </BtnCircle>
-              <BtnCircle>
-                <IconAtom />
-              </BtnCircle>
-              <BtnCircle>
-                <IconH />
-              </BtnCircle>
-              <BtnCircle>
-                <IconPrinter />
-              </BtnCircle>
-            </div>
-          }
-        />
-      </Routes>
-    </Layout>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/search" element={<DataSearch />} />
+      <Route path="/analytics" element={<Analytics />} />
+    </Routes>
   );
 }
 

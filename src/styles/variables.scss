@@ -40,6 +40,7 @@ $light-green-label: #dbeddb;
 }
 
 @mixin font($_weight, $_size, $_height) {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: $_weight;
   font-size: $_size;
