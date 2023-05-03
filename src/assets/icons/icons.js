@@ -24,6 +24,11 @@ import { ReactComponent as IconSquareSearch } from "./square-search.svg";
 import { ReactComponent as IconProtectedDir } from "./protected-directory.svg";
 import { ReactComponent as IconContact } from "./contact.svg";
 
+import { ReactComponent as IconArrowDown } from "./arrow-down.svg";
+import { ReactComponent as IconFilter } from "./filter.svg";
+
+import { ReactComponent as IconCheck } from "./check.svg";
+
 export {
   BntuMainLogo,
   IconBurgerMenu,
@@ -46,4 +51,7 @@ export {
   IconSquareSearch,
   IconProtectedDir,
   IconContact,
+  IconArrowDown,
+  IconFilter,
+  IconCheck,
 };

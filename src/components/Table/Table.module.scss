@@ -1,0 +1,79 @@
+@import "../../styles/variables.scss";
+
+.table {
+  //   margin: 40px auto 0;
+  //   width: 100%;
+}
+
+thead {
+  width: 100%;
+}
+
+tbody {
+  width: 100%;
+}
+
+tr {
+}
+
+th {
+}
+
+td {
+}
+
+table {
+  border-spacing: 0;
+  //   border: 1px solid black;
+  margin: 40px auto 0;
+  width: 92%;
+  box-sizing: border-box;
+  background: #fff;
+
+  border-radius: 16px;
+
+  thead {
+    width: 100%;
+  }
+
+  tbody {
+    width: 100%;
+  }
+
+  th {
+    text-align: left;
+    // padding: 0.5rem;
+    padding: 10px 30px;
+  }
+
+  tr {
+    :last-child {
+      td {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  //   th,
+  td {
+    margin: 0;
+    // padding: 0.5rem;
+    padding: 5px 30px;
+    border-bottom: 1px solid $black20;
+    // border-right: 1px solid black;
+
+    :last-child {
+      border-right: 0;
+    }
+  }
+}
+
+.tableHeader {
+  padding: 26px 20px;
+  width: 100%;
+}
+
+.tableFooter {
+  padding: 30px;
+  width: 100%;
+}

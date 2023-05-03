@@ -3,7 +3,7 @@ import st from "./MenuTree.module.scss";
 import BtnCircle from "../BtnCircle/BtnCircle";
 import { Link } from "react-router-dom";
 
-function MenuTree({ config }) {
+function MenuTree({ groupName, config }) {
   return (
     <section className={st.tree}>
       <ul>
@@ -12,7 +12,7 @@ function MenuTree({ config }) {
             key={item.name}
             className={index % 2 === 0 ? st.itemRight : st.itemLeft}
           >
-            <Link to={item.link}>
+            <Link to={`/${groupName}${item.link}`}>
               <div className={st.node}></div>
               {index % 2 !== 0 && <span className={st.text}>{item.name}</span>}
               <BtnCircle>{item.icon}</BtnCircle>

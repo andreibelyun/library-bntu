@@ -16,28 +16,32 @@ function Analytycs() {
     {
       name: "Организации: анализ публикаций",
       icon: <IconBntuBuilding />,
-      link: "/",
+      link: "/publications-analysis",
     },
     {
       name: "Динамика публикаций/цитирований",
       icon: <IconAnalyticsSquare />,
-      link: "/",
+      link: "/dynamics",
     },
     {
       name: "Издания: анализ публикаций и ключевых слов",
       icon: <IconBookSearch />,
-      link: "/",
+      link: "/editions",
     },
     {
       name: "Публикации по ключевым словам",
       icon: <IconDocumentAnalytics />,
-      link: "/",
+      link: "/publications-by-keywords",
     },
-    { name: "Сеть ключевого слова", icon: <IconBubbles />, link: "/" },
+    {
+      name: "Сеть ключевого слова",
+      icon: <IconBubbles />,
+      link: "/keyword-network",
+    },
     {
       name: "Научная сфера организации",
       icon: <IconDocumentAtom />,
-      link: "/",
+      link: "/scientific-sphere",
     },
   ];
 
@@ -45,7 +49,7 @@ function Analytycs() {
     <Layout>
       <div>
         <Title>Аналитика и&nbsp;визуализация</Title>
-        <MenuTree config={menuConfig} />
+        <MenuTree groupName="analytics" config={menuConfig} />
       </div>
     </Layout>
   );
