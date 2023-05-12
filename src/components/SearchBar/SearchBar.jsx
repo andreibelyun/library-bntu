@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   IconArrowDown,
   IconCloseMenu,
@@ -10,12 +10,22 @@ import FiltersMenu from "./FiltersMenu/FiltersMenu";
 import Btn from "../Btn/Btn";
 import { api } from "../../api/api";
 
-function SearchBar({ title, fieldsNames, setColumns, setData }) {
+function SearchBar({
+  title,
+  fieldsNames,
+  setColumns,
+  columns,
+  setData,
+  filtersList,
+  filtersByDefault,
+}) {
   const defaultFields = [{ id: 1, type: fieldsNames[0], value: "" }];
 
-  const [fields, setFields] = useState(defaultFields);
-
   const [isFiltersOpen, setFiltersOpen] = useState(false);
+
+  const [fields, setFields] = useState(defaultFields);
+  const [isCitationEnabled, setCitationEnabled] = useState(false);
+  const [accessType, setAccessType] = useState("green");
 
   const addSearchField = () => {
     setFields((prev) => [
@@ -104,7 +114,18 @@ function SearchBar({ title, fieldsNames, setColumns, setData }) {
               <IconFilter />
               <span>Фильтры</span>
             </Btn>
-            {isFiltersOpen && <FiltersMenu />}
+            {isFiltersOpen && (
+              <FiltersMenu
+                filtersList={filtersList}
+                selectedItems={columns}
+                setSelectedItems={setColumns}
+                filtersByDefault={filtersByDefault}
+                isCitationEnabled={isCitationEnabled}
+                setCitationEnabled={setCitationEnabled}
+                accessType={accessType}
+                setAccessType={setAccessType}
+              />
+            )}
           </div>
         </div>
         <div className={styles.btnGroup}>
@@ -159,6 +180,9 @@ const SearchField = ({
 
 const Select = ({ value, fieldID, fieldsNames, onTypeChange }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  //todo: click outside
 
   return (
     <div className={styles.select}>
@@ -172,6 +196,7 @@ const Select = ({ value, fieldID, fieldsNames, onTypeChange }) => {
       </button>
       {isMenuOpen && (
         <SelectMenu
+          menuRef={menuRef}
           items={fieldsNames}
           fieldID={fieldID}
           onTypeChange={onTypeChange}
@@ -184,9 +209,9 @@ const Select = ({ value, fieldID, fieldsNames, onTypeChange }) => {
   );
 };
 
-const SelectMenu = ({ items, fieldID, onTypeChange, closeMenu }) => {
+const SelectMenu = ({ menuRef, items, fieldID, onTypeChange, closeMenu }) => {
   return (
-    <div className={styles.selectMenu}>
+    <div ref={menuRef} className={styles.selectMenu}>
       <ul>
         {items.map((item) => (
           <li key={item.id}>

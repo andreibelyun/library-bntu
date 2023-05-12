@@ -30,13 +30,21 @@
   gap: 8px;
 }
 
-.head {
-  @include flex(row, space-between, center);
+.main {
+  @include flex(row, space-between, flex-start);
+}
+
+.columns,
+.access {
   margin-bottom: 24px;
 }
 
-.main {
-  @include flex(row, space-between, center);
+.fieldFilters {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  column-gap: 50px;
+  margin-bottom: 24px;
 }
 
 .footer {
@@ -45,6 +53,7 @@
 }
 
 .checkbox {
+  margin-bottom: 16px;
   //   @include flex(row, flex-start, center);
 
   input {
