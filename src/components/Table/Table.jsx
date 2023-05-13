@@ -10,45 +10,47 @@ function Table({ columns, data }) {
     tableInstance;
 
   return (
-    <div>
-      <table {...getTableProps()} className={styles.table}>
-        <thead>
-          <div className={styles.tableHeader}>
-            <p>Результатов: 244</p>
-          </div>
-
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-
-        <tbody {...getTableBodyProps()}>
-          {rows.map((row) => {
-            prepareRow(row);
-            return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  return (
-                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                  );
-                })}
+    <div className={styles.container}>
+      <div className={styles.tableHeader}>
+        <p>Результатов: 244</p>
+      </div>
+      <div className={styles.tableContainer}>
+        <table {...getTableProps()} className={styles.table}>
+          <thead>
+            {headerGroups.map((headerGroup) => (
+              <tr {...headerGroup.getHeaderGroupProps()}>
+                {headerGroup.headers.map((column) => (
+                  <th {...column.getHeaderProps()}>
+                    {column.render("Header")}
+                  </th>
+                ))}
               </tr>
-            );
-          })}
-        </tbody>
+            ))}
+          </thead>
 
-        <div className={styles.tableFooter}>
-          <Paginator
-            pages={[1, 2, 3, 4]}
-            currentPage={1}
-            onPageClick={() => {}}
-          />
-        </div>
-      </table>
+          <tbody {...getTableBodyProps()}>
+            {rows.map((row) => {
+              prepareRow(row);
+              return (
+                <tr {...row.getRowProps()}>
+                  {row.cells.map((cell) => {
+                    return (
+                      <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <div className={styles.tableFooter}>
+        <Paginator
+          pages={[1, 2, 3, 4]}
+          currentPage={1}
+          onPageClick={() => {}}
+        />
+      </div>
     </div>
   );
 }

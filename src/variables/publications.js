@@ -26,7 +26,6 @@ export const defaultTableColumns = [
   {
     Header: "Название издания",
     accessor: "host_venue.display_name",
-    data: (item) => item.host_venue.display_name,
   },
   {
     Header: "Глава",
