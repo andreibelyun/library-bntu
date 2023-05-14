@@ -1,4 +1,4 @@
-export const defaultTableColumns = [
+export const tableColumns = [
   {
     Header: "ID публикации",
     accessor: "id",
@@ -21,11 +21,11 @@ export const defaultTableColumns = [
   },
   {
     Header: "Id издания",
-    accessor: "host_venue.id",
+    accessor: "host_venue_id",
   },
   {
     Header: "Название издания",
-    accessor: "host_venue.display_name",
+    accessor: "host_venue_display_name",
   },
   {
     Header: "Глава",
@@ -33,11 +33,39 @@ export const defaultTableColumns = [
   },
   {
     Header: "Выпуск",
-    accessor: "name",
+    accessor: "biblio.issue",
   },
   {
-    Header: "Name",
-    accessor: "biblio.issue",
+    Header: "Страницы",
+    accessor: "1",
+  },
+  {
+    Header: "Издательство",
+    accessor: "2",
+  },
+  {
+    Header: "Авторы",
+    accessor: "3",
+  },
+  {
+    Header: "Цитирование",
+    accessor: "4",
+  },
+  {
+    Header: "Цитирование ссылка",
+    accessor: "5",
+  },
+  {
+    Header: "Ключевые слова",
+    accessor: "6",
+  },
+  {
+    Header: "Список литературы",
+    accessor: "referenced_works.length",
+  },
+  {
+    Header: "Релевантные публикации",
+    accessor: "8",
   },
 ];
 
@@ -51,72 +79,43 @@ export const searchFieldsList = [
   { id: 7, name: "Дата публикации", key: "publication_date" },
 ];
 
-export const filtersList = [
-  {
-    text: "ID публикации",
-    id: "id",
-  },
-  {
-    text: "DOI публикации",
-    id: "doi",
-  },
-  {
-    text: "Название публикации",
-    id: "title",
-  },
-  {
-    text: "Год публикации",
-    id: "publication_year",
-  },
-  {
-    text: "Дата публикации",
-    id: "publication_date",
-  },
-  {
-    text: "Id издания",
-    id: "host_venue.id",
-  },
-  {
-    text: "Название издания",
-    id: "host_venue.display_name",
-  },
-  {
-    text: "Глава",
-    id: "biblio.volume",
-  },
-  {
-    text: "Выпуск",
-    id: "name",
-  },
-  {
-    text: "Name",
-    id: "biblio.issue",
-  },
-  {
-    text: "sdadasd",
-    id: "asdasdasd.issue",
-  },
+export const filtersList = tableColumns.map((item) => ({
+  text: item.Header,
+  id: item.accessor,
+}));
+
+const filtersByDefaultNames = [
+  "ID публикации",
+  "DOI публикации",
+  "Название публикации",
+  "Год публикации",
+  "Id издания",
+  "Название издания",
+  "Глава",
+  "Выпуск",
+  "Страницы",
+  "Издательство",
+  "Авторы",
+  "Цитирование",
+  "Цитирование ссылка",
 ];
 
-export const filtersByDefault = [
-  {
-    text: "Дата публикации",
-    id: "publication_date",
-  },
-  {
-    text: "Id издания",
-    id: "host_venue.id",
-  },
-  {
-    text: "Название издания",
-    id: "host_venue.display_name",
-  },
-  {
-    text: "Глава",
-    id: "biblio.volume",
-  },
-  {
-    text: "Выпуск",
-    id: "name",
-  },
-];
+export const filtersByDefault = filtersList.filter((item) =>
+  filtersByDefaultNames.some((name) => name === item.text)
+);
+
+export const getTransformedData = (data) =>
+  data.map((item) => ({
+    id:
+      (item?.id && (
+        <a href={item.id} target="_blank" rel="noreferrer">
+          {item.id}
+        </a>
+      )) ||
+      "-",
+    doi: item?.doi || "-",
+    title: item?.title || "-",
+    publication_year: item?.publication_year || "-",
+    host_venue_id: item?.host_venue?.id || "-",
+    host_venue_display_name: item?.host_venue?.display_name || "-",
+  }));

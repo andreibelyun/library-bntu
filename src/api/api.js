@@ -1,10 +1,12 @@
 import axios from "axios";
 
+const PAGE_SIZE = 5;
+
 const basePath = "https://api.openalex.org";
 
-// axios.defaults.baseURL = basePath;
-
 export const api = {
-  getWorks: (queryString) =>
-    axios(`${basePath}/works?filter=${queryString}`).then((res) => res.data),
+  getWorks: (queryString, page = 1) =>
+    axios(
+      `${basePath}/works?page=${page}&per-page=${+PAGE_SIZE}&filter=${queryString}`
+    ).then((res) => res.data),
 };

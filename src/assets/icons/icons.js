@@ -29,6 +29,8 @@ import { ReactComponent as IconFilter } from "./filter.svg";
 
 import { ReactComponent as IconCheck } from "./check.svg";
 
+import { ReactComponent as IconExport } from "./download.svg";
+
 export {
   BntuMainLogo,
   IconBurgerMenu,
@@ -54,4 +56,5 @@ export {
   IconArrowDown,
   IconFilter,
   IconCheck,
+  IconExport,
 };

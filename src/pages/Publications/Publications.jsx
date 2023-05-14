@@ -1,34 +1,81 @@
 import React, { useEffect, useState } from "react";
+import styles from "./Publications.module.scss";
 import DataPageLayout from "../../components/DataPageLayout/DataPageLayout";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Table from "../../components/Table/Table";
 import {
-  defaultTableColumns,
   filtersByDefault,
   filtersList,
+  getTransformedData,
   searchFieldsList,
+  tableColumns,
 } from "../../variables/publications";
+import { api } from "../../api/api";
 
 function Publications() {
-  const [columns, setColumns] = useState(defaultTableColumns);
+  const [columns, setColumns] = useState(tableColumns);
   const [data, setData] = useState({});
+  const [dataCount, setDataCount] = useState(0);
+  const [isError, setError] = useState(false);
+
+  const [query, setQuery] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    console.log(data.results);
+    setError(false);
+
+    if (query) {
+      api
+        .getWorks(query, currentPage)
+        .then((data) => {
+          setData(getTransformedData(data.results));
+          setDataCount(data.meta.count);
+        })
+        .catch((err) => {
+          setError(true);
+          setData([]);
+          setDataCount(0);
+          console.error(err);
+        });
+    }
+  }, [query, currentPage]);
+
+  useEffect(() => {
+    console.log(data);
   }, [data]);
 
   return (
     <DataPageLayout>
       <SearchBar
-        title='Поиск публикации'
+        title="Поиск публикации"
         fieldsNames={searchFieldsList}
         columns={columns}
         setColumns={setColumns}
-        setData={setData}
         filtersList={filtersList}
         filtersByDefault={filtersByDefault}
+        setQuery={setQuery}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        setError={setError}
       />
-      {data.results && <Table columns={columns} data={data.results} />}
+      {!isError && data.length > 0 && (
+        <Table
+          columns={columns}
+          data={data}
+          dataCount={dataCount}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+      )}
+
+      {isError && (
+        <div className={styles.informer}>
+          <p className={styles.text}>
+            Произошла ошибка, проверьте корректность введённых данных и
+            попробуйте повторить запрос
+          </p>
+        </div>
+      )}
     </DataPageLayout>
   );
 }

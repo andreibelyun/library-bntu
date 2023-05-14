@@ -8,16 +8,17 @@ import {
 import styles from "./SearchBar.module.scss";
 import FiltersMenu from "./FiltersMenu/FiltersMenu";
 import Btn from "../Btn/Btn";
-import { api } from "../../api/api";
 
 function SearchBar({
   title,
   fieldsNames,
   setColumns,
   columns,
-  setData,
   filtersList,
   filtersByDefault,
+  setQuery,
+  setCurrentPage,
+  setError,
 }) {
   const defaultFields = [{ id: 1, type: fieldsNames[0], value: "" }];
 
@@ -60,9 +61,11 @@ function SearchBar({
 
   const handleClearClick = () => {
     setFields(defaultFields);
+    setError(false);
   };
 
   const handleSearchClick = () => {
+    setCurrentPage(1);
     let queryString = "";
 
     fields.forEach((item, index) => {
@@ -71,14 +74,20 @@ function SearchBar({
       }`;
     });
 
-    api
-      .getWorks(queryString)
-      .then((data) => {
-        setData(data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    //currentPage
+    //citation
+    //access type
+
+    setQuery(queryString);
+
+    // api
+    //   .getWorks(queryString + 'page=1&per-page=5')
+    //   .then((data) => {
+    //     setData(data);
+    //   })
+    //   .catch((err) => {
+    //     console.error(err);
+    //   });
   };
 
   useEffect(() => {
@@ -124,6 +133,9 @@ function SearchBar({
                 setCitationEnabled={setCitationEnabled}
                 accessType={accessType}
                 setAccessType={setAccessType}
+                onClose={() => {
+                  setFiltersOpen(false);
+                }}
               />
             )}
           </div>

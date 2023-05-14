@@ -12,6 +12,7 @@ function FiltersMenu({
   setCitationEnabled,
   accessType,
   setAccessType,
+  onClose,
 }) {
   const removeItem = (id) => {
     setSelectedItems((prev) => prev.filter((item) => item.accessor !== id));
@@ -149,7 +150,9 @@ function FiltersMenu({
         <Btn onClick={setDefaultSettings} noBorder>
           Сбросить фильтры
         </Btn>
-        <Btn fillGreen>Применить</Btn>
+        <Btn fillGreen onClick={onClose}>
+          Применить
+        </Btn>
       </div>
     </div>
   );
