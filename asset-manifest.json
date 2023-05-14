@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/library-bntu/static/css/main.b71d9a8a.css",
-    "main.js": "/library-bntu/static/js/main.0dd91bf1.js",
+    "main.css": "/library-bntu/static/css/main.fc4d539b.css",
+    "main.js": "/library-bntu/static/js/main.d1502527.js",
     "static/media/Roboto-Regular.ttf": "/library-bntu/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
     "static/media/Roboto-Bold.ttf": "/library-bntu/static/media/Roboto-Bold.f80816a5455d171f948d.ttf",
     "static/media/RobotoSlab-Bold.ttf": "/library-bntu/static/media/RobotoSlab-Bold.782c0d76a12a08d80d48.ttf",
@@ -31,17 +31,18 @@
     "static/media/filter.svg": "/library-bntu/static/media/filter.72550bddb32dae1bae1c696905b73cea.svg",
     "static/media/quotes.svg": "/library-bntu/static/media/quotes.ca2d38e0b05ff9eacf654f29a48ea1a6.svg",
     "static/media/mail.svg": "/library-bntu/static/media/mail.45d805cc21941fd12d7072c57610dea0.svg",
+    "static/media/download.svg": "/library-bntu/static/media/download.36e87d44aa63d168e192c6dd9daca36f.svg",
     "static/media/check.svg": "/library-bntu/static/media/check.35220461ba698f8498fa3ee486802b20.svg",
     "static/media/arrow-down.svg": "/library-bntu/static/media/arrow-down.6505b8b49c318e73f5084fbec8719420.svg",
     "static/media/analytics.svg": "/library-bntu/static/media/analytics.a064379a145e003a3218b9954759724c.svg",
     "static/media/contact.svg": "/library-bntu/static/media/contact.574b7f1bb03537a4269cb00760585d92.svg",
     "static/media/h.svg": "/library-bntu/static/media/h.6ad8e8b538115dac7c234f791219758c.svg",
     "index.html": "/library-bntu/index.html",
-    "main.b71d9a8a.css.map": "/library-bntu/static/css/main.b71d9a8a.css.map",
-    "main.0dd91bf1.js.map": "/library-bntu/static/js/main.0dd91bf1.js.map"
+    "main.fc4d539b.css.map": "/library-bntu/static/css/main.fc4d539b.css.map",
+    "main.d1502527.js.map": "/library-bntu/static/js/main.d1502527.js.map"
   },
   "entrypoints": [
-    "static/css/main.b71d9a8a.css",
-    "static/js/main.0dd91bf1.js"
+    "static/css/main.fc4d539b.css",
+    "static/js/main.d1502527.js"
   ]
 }
