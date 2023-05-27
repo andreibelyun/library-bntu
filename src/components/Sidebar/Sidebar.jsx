@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   IconAnalytics,
   IconAnalyticsSquare,
@@ -153,6 +153,7 @@ const Burger = ({ toggleSidebar }) => (
 
 const GroupTab = ({ title, icon, link, items }) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isTabOpen, setTabOpen] = useState(
     link !== "/" && location.pathname.includes(link)
   );
@@ -164,6 +165,9 @@ const GroupTab = ({ title, icon, link, items }) => {
   return (
     <li
       onClick={() => {
+        if (!items) {
+          navigate(link);
+        }
         setTabOpen(!isTabOpen);
       }}
     >
