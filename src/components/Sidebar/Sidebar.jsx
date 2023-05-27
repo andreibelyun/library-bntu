@@ -23,7 +23,7 @@ import {
 } from "../../assets/icons/icons";
 import styles from "./Sidebar.module.scss";
 
-const sidebarConfig = [
+export const sidebarConfig = [
   { title: "О системе поиска", icon: <IconSystemSearch />, link: "/" },
   {
     title: "Поиск данных",
@@ -92,7 +92,7 @@ const sidebarConfig = [
   { title: "Контакты", icon: <IconContact />, link: "/contacts" },
 ];
 
-function Sidebar() {
+function Sidebar(props) {
   const location = useLocation();
   const [isSidebarOpen, setSidebarOpen] = useState(true);
 
@@ -101,7 +101,7 @@ function Sidebar() {
   };
 
   return (
-    <div className={styles.page}>
+    <div className={styles.page} {...props}>
       {!isSidebarOpen ? (
         <div className={styles.sidebarSmall}>
           <Burger toggleSidebar={toggleSidebar} />

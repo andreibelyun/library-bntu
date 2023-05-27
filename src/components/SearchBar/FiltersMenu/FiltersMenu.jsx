@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./FiltersMenu.module.scss";
 import Btn from "../../Btn/Btn";
 import { IconCheck } from "../../../assets/icons/icons";
+import { useClickOutside } from "@react-hookz/web";
 
 function FiltersMenu({
   filtersList,
@@ -66,8 +67,15 @@ function FiltersMenu({
     setAccessType("green");
   };
 
+  const menuRef = useRef(null);
+  useClickOutside(menuRef, (e) => {
+    if (!e.target.id.includes("filters-toggle")) {
+      onClose();
+    }
+  });
+
   return (
-    <div className={styles.filtersMenu}>
+    <div ref={menuRef} className={styles.filtersMenu}>
       <h4 className={styles.title}>Фильтры</h4>
 
       <div className={styles.main}>

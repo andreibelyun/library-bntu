@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import styles from "./Table.module.scss";
 import { useTable } from "react-table";
 import Paginator from "../Paginator/Paginator";
 import Btn from "../Btn/Btn";
 import { IconArrowDown, IconExport } from "../../assets/icons/icons";
+import { useClickOutside } from "@react-hookz/web";
+import ExcelExportBtn from "../ExcelExportBtn";
 
 function Table({ columns, data, dataCount, currentPage, setCurrentPage }) {
+  const [isExportMenuOpen, setExportMenuOpen] = useState();
+
   const tableInstance = useTable({ columns, data });
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
@@ -15,11 +19,26 @@ function Table({ columns, data, dataCount, currentPage, setCurrentPage }) {
     <div className={styles.container}>
       <div className={styles.tableHeader}>
         <p>Результатов: {dataCount}</p>
-        <Btn className={styles.export}>
-          <IconExport />
-          <span>Экспорт таблицы</span>
-          <IconArrowDown />
+        <Btn
+          id="export-toggle"
+          className={styles.export}
+          onClick={() => {
+            setExportMenuOpen(!isExportMenuOpen);
+          }}
+        >
+          <IconExport id="export-toggle-icon" />
+          <span id="export-toggle-text">Экспорт таблицы</span>
+          <IconArrowDown id="export-toggle-icon2" />
         </Btn>
+        {isExportMenuOpen && (
+          <ExportMenu
+            data={data}
+            columns={columns}
+            closeMenu={() => {
+              setExportMenuOpen(false);
+            }}
+          />
+        )}
       </div>
 
       <div className={styles.tableContainer}>
@@ -64,3 +83,29 @@ function Table({ columns, data, dataCount, currentPage, setCurrentPage }) {
 }
 
 export default Table;
+
+const ExportMenu = ({ data, columns, closeMenu }) => {
+  const defaultFileName = "table";
+  const menuRef = useRef(null);
+
+  useClickOutside(menuRef, (e) => {
+    if (!e.target.id.includes("export-toggle")) {
+      closeMenu();
+    }
+  });
+
+  return (
+    <div ref={menuRef} className={styles.exportMenu}>
+      <ul>
+        <li>
+          <ExcelExportBtn
+            csvData={data}
+            columns={columns}
+            fileName={defaultFileName}
+            closeMenu={closeMenu}
+          />
+        </li>
+      </ul>
+    </div>
+  );
+};

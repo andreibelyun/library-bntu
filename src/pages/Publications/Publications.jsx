@@ -68,6 +68,12 @@ function Publications() {
         />
       )}
 
+      {data.length === 0 && (
+        <div className={styles.informer}>
+          <p className={styles.text}>По вашему запросу ничего не найдено</p>
+        </div>
+      )}
+
       {isError && (
         <div className={styles.informer}>
           <p className={styles.text}>

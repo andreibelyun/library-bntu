@@ -8,6 +8,7 @@ import {
 import styles from "./SearchBar.module.scss";
 import FiltersMenu from "./FiltersMenu/FiltersMenu";
 import Btn from "../Btn/Btn";
+import { useClickOutside } from "@react-hookz/web";
 
 function SearchBar({
   title,
@@ -116,12 +117,13 @@ function SearchBar({
 
           <div className={styles.filters}>
             <Btn
+              id="filters-toggle"
               onClick={() => {
                 setFiltersOpen(!isFiltersOpen);
               }}
             >
-              <IconFilter />
-              <span>Фильтры</span>
+              <IconFilter id="filters-toggle-icon" />
+              <span id="filters-toggle-text">Фильтры</span>
             </Btn>
             {isFiltersOpen && (
               <FiltersMenu
@@ -194,17 +196,22 @@ const Select = ({ value, fieldID, fieldsNames, onTypeChange }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
 
-  //todo: click outside
+  useClickOutside(menuRef, (e) => {
+    if (!e.target.id.includes("select-toggle")) {
+      setMenuOpen(false);
+    }
+  });
 
   return (
     <div className={styles.select}>
       <button
+        id="select-toggle"
         onClick={() => {
           setMenuOpen(!isMenuOpen);
         }}
       >
-        <span>{value.name}</span>
-        <IconArrowDown />
+        <span id="select-toggle-text">{value.name}</span>
+        <IconArrowDown id="select-toggle-icon" />
       </button>
       {isMenuOpen && (
         <SelectMenu
